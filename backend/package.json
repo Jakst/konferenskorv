@@ -1,0 +1,12 @@
+{
+    "main": "src/server.js",
+    "scripts": {
+      "start": "node src/server.js"
+    },
+    "dependencies": {
+      "express": "latest"
+    },
+    "engines": {
+      "node": "4.0.0"
+    }
+}
