@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}-backend
+  labels:
+    app: {{ .Chart.Name }}-backend
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  replicas: {{ .Values.backend.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.backend.name }}-app
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+    spec:
+      containers:
+      - name: {{ .Values.backend.name }}
+        image: {{ .Values.backend.image }}
+        imagePullPolicy: Always
+        resources:
+          requests:
+            # cpu: 100m
+            memory: 64Mi
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
