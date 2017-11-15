@@ -1,23 +1,29 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="ISO-8859-1">
-    </head>
-    <body>
-        <h1>En webapp</h1>
-        
-        <div>Data från api:</div>
-        <div id="content"></div>
 
-        <script>
-            console.log(httpGet('/api/user'));
-            document.getElementById('content').innerHTML = httpGet('/api/user');
-            
-            function httpGet(theUrl) {
-                var xmlHttp = new XMLHttpRequest();
-                xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-                xmlHttp.send( null );
-                return xmlHttp.responseText;
-            }
-        </script>
-    </body>
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <h1>En webapp</h1>
+
+  <div>Data från vårat api:</div>
+  <div id="content"></div>
+
+  <script>
+    const response = httpGet('/api/user');
+
+    console.log(response);
+    document.getElementById('content').innerHTML = response;
+
+    function httpGet(theUrl) {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("GET", theUrl, false); // false for synchronous request
+      xmlHttp.send(null);
+      return xmlHttp.responseText;
+    }
+  </script>
+</body>
+
 </html>
