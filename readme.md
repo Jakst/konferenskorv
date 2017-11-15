@@ -4,8 +4,8 @@ Hennings och Jakobs sättauppkubernetespoddarguide
 Innan du börjar, installera följande verktyg:
 
 * [Google Cloud SDK](https://cloud.google.com/sdk/docs/quickstarts)
-* [Kubernetes CLI]
-* [Helm]
+* [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+* [Helm](https://github.com/kubernetes/helm/releases)
 
 
 ## Autentisera dig mot GCP & Kubernetes
